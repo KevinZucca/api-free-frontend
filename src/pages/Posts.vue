@@ -32,9 +32,13 @@ export default {
     <div id="main-posts-container">
         <div id="posts-container">
             <div class="card" v-for="post in postsList" :key="post.id">
-                <h3>{{ post.title }}</h3>
-                <p>{{ post.content }}</p>
-            </div>
+                <div id="card-details">
+                  <h3>{{ post.title }}</h3>
+                  <p>{{ post.content }}</p>
+                  <strong id="tags" v-for="tag in post.tags">#{{ tag ? tag.name : '' }} </strong>
+                </div>
+                <img :src="post.image ? post.image.src : ''" alt="">
+              </div>
         </div>
     </div>
 </template>
@@ -66,15 +70,48 @@ export default {
             @include centeredFlexContainer();
             flex-flow: column;
 
+            position: relative;
             height: 500px;
-            max-width: 300px;
-            width: calc(100% / 4 - (15px / 4 * 3));
-            border: 1px solid black;
+            max-width: 450px;
+            width: calc(100% / 3 - (15px / 3 * 2));
             text-align: center;
+            box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.521);
+            transition: all .3s ease;
 
-            h3 {
-                font-size: 1.6em;
+            &:hover {
+              scale: 1.05;
+              cursor: pointer;
+              z-index: 4;
             }
+
+            &:hover img {
+              filter: brightness(80%);
+
+            }
+
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+
+              filter: brightness(60%);
+            }
+
+
+
+            #card-details {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              z-index: 2;
+
+              h3 {
+                  font-size: 1.6em;
+              }
+
+            }
+
         }
     }
   }
