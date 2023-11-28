@@ -29,16 +29,13 @@ export default {
 </script>
 
 <template>
-    <div id="container">
-        <h1>Posts List</h1>
-
+    <div id="main-posts-container">
         <div id="posts-container">
             <div class="card" v-for="post in postsList" :key="post.id">
-                <h4>{{ post.title }}</h4>
+                <h3>{{ post.title }}</h3>
+                <p>{{ post.content }}</p>
             </div>
         </div>
-
-       
     </div>
 </template>
 
@@ -51,7 +48,7 @@ export default {
   }
 /////////
 
-  #container {
+  #main-posts-container {
     margin: 30px auto;
     @include centeredFlexContainer();
     flex-flow: column;
@@ -60,7 +57,6 @@ export default {
 
     #posts-container {
         width: 100%;
-        border: 1px solid black;
 
         @include centeredFlexContainer();
         flex-wrap: wrap;
@@ -68,9 +64,17 @@ export default {
 
         .card {
             @include centeredFlexContainer();
-            height: 300px;
-            width: calc(100% / 3 - (15px / 3 * 2));
+            flex-flow: column;
+
+            height: 500px;
+            max-width: 300px;
+            width: calc(100% / 4 - (15px / 4 * 3));
             border: 1px solid black;
+            text-align: center;
+
+            h3 {
+                font-size: 1.6em;
+            }
         }
     }
   }

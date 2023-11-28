@@ -25,8 +25,12 @@ export default {
     </div>
     <div class="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
       <div class="grid grid-cols-1 gap-x-8 gap-y-6 text-base font-semibold leading-7 text-white sm:grid-cols-2 md:flex lg:gap-x-10">
-        <a href="#">Posts <span aria-hidden="true">&rarr;</span></a>
-        <a href="#">to insert <span aria-hidden="true">&rarr;</span></a>
+        <router-link :to="{name: 'posts'}">
+          See all Posts <span aria-hidden="true">&rarr;</span>
+        </router-link>
+        <router-link :to="{name: 'form'}">
+          Create a new Post <span aria-hidden="true">&rarr;</span>
+        </router-link>
         <a href="#">to insert<span aria-hidden="true">&rarr;</span></a>
         <a href="#">to insert<span aria-hidden="true">&rarr;</span></a>
       </div>

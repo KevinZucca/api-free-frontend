@@ -19,17 +19,4 @@ export default {
 </template>
 
 <style lang="scss">
-//centered container model
-  @mixin centeredFlexContainer () {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-/////////
-
-  #container {
-    margin: 0 auto;
-    @include centeredFlexContainer();
-
-  }
 </style>
